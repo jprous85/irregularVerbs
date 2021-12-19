@@ -46,8 +46,8 @@ const Question = () => {
     setChangeButton(false);
     setSimplePastInputError(false);
     setPastParticipleInputError(false);
-    this.simplePast.clear();
-    this.pastParticiple.clear();
+    setSimplePast('');
+    setPastParticiple('');
   };
 
   const ButtonChange = changeButton ? (
@@ -105,9 +105,6 @@ const Question = () => {
             disabled={changeButton}
             placeholder={'Simple past'}
             autoCompleteType={undefined}
-            ref={simplePastRef => {
-              this.simplePast = simplePastRef;
-            }}
             onChange={text => setSimplePast(text.nativeEvent.text)}
             errorMessage={
               changeButton && simplePastInputError
@@ -127,9 +124,6 @@ const Question = () => {
             disabled={changeButton}
             placeholder={'Past participle'}
             autoCompleteType={undefined}
-            ref={pastParticipleRef => {
-              this.pastParticiple = pastParticipleRef;
-            }}
             onChange={text => setPastParticiple(text.nativeEvent.text)}
             errorMessage={
               changeButton && pastParticipleInputError
