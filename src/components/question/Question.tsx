@@ -32,7 +32,6 @@ const Question = () => {
   };
 
   const checkAnswer = () => {
-    console.log(simplePast.toUpperCase(), pastParticiple);
     if (verb.simplePast.toUpperCase() !== simplePast.toUpperCase()) {
       setSimplePastInputError(true);
     }
@@ -102,10 +101,12 @@ const Question = () => {
                 ? 'red'
                 : 'green',
             }}
+            value={simplePast}
+            disabled={changeButton}
             placeholder={'Simple past'}
             autoCompleteType={undefined}
-            ref={simplePast => {
-              this.simplePast = simplePast;
+            ref={simplePastRef => {
+              this.simplePast = simplePastRef;
             }}
             onChange={text => setSimplePast(text.nativeEvent.text)}
             errorMessage={
@@ -122,10 +123,12 @@ const Question = () => {
                 ? 'red'
                 : 'green',
             }}
+            value={pastParticiple}
+            disabled={changeButton}
             placeholder={'Past participle'}
             autoCompleteType={undefined}
-            ref={pastParticiple => {
-              this.pastParticiple = pastParticiple;
+            ref={pastParticipleRef => {
+              this.pastParticiple = pastParticipleRef;
             }}
             onChange={text => setPastParticiple(text.nativeEvent.text)}
             errorMessage={
